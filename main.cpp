@@ -1,49 +1,37 @@
-#include <iostream>
-#include "account.h"
-#include <cstring>
+//
+//  main.cpp
+//  Vector
+//
+//  Created by Miroslav Mironov on 4/22/15.
+//  Copyright (c) 2015 Miroslav Mironov. All rights reserved.
+//
 
+#include <iostream>
+#include "vector.h"
 using namespace std;
 
-bool isEmpty(Account account)
-{
-    return account.getBalance() <= 0;
-}
-
-void emptyAccount(Account account)
-{
-    account.withdraw(account.getBalance());
-}
-
-Account emptyBetterAccount(Account account)
-{
-    account.withdraw(account.getBalance());
-    return account;
-}
-
-int main()
-{
-    Account myAccount(500, "current account");
-
-    myAccount.deposit(200);
-
-    //emptyAccount(myAccount);
-
-    //copy constructor called
-    Account thirdAccount;
-
-    //copy constructor NOT called
-    //Account fourthAccount;
-    //fourthAccount = myAccount;
-
-    //emptyBetterAccount(thirdAccount);
-
-    thirdAccount.setName("deposit account");
-
-    thirdAccount = myAccount;
-
+int main(int argc, const char * argv[]) {
+    
+    Vector v;
+    v.add(1);
+    v.add(50);
+    v.add(100);
+    
+    for(int i=0; i < 5; ++i)
+    {
+        v.add(i * i + 20);
+    }
+    
+    v.print();
     cout << endl;
-    thirdAccount.print();
+    
+    int index = 3;
+    cout << "Element at index " << index << ": " << v.get(index) << endl;
+    
+    v.removeAt(index);
+    
+    v.print();
     cout << endl;
-
+    
     return 0;
 }
