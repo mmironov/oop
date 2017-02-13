@@ -4,7 +4,7 @@ public class NumbersUtil {
 	
 	public static int[] maxEquals(int[] numbers) {
 		int maxlength = 1;
-		int start = 0;
+		int startIndex = 0;
 		int length = 1;
 		int index = 0;
 		for (int i = 1; i < numbers.length; i++) {
@@ -14,7 +14,7 @@ public class NumbersUtil {
 			}
 			if (maxlength < length) {
 				maxlength = length;
-				start = index;
+				startIndex = index;
 			}
 			length = 1;
 			index = i;
@@ -22,8 +22,8 @@ public class NumbersUtil {
 		
 		int[] result = new int[maxlength];
 		
-		for (int i = start; i < start + maxlength; i++) {
-			result[i - start] = numbers[i];
+		for (int i = startIndex; i < startIndex + maxlength; i++) {
+			result[i - startIndex] = numbers[i];
 		}
 		
 		return result;
